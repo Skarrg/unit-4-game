@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+}
+
+#gallery {
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    padding-top: 50px;
+}
+
+#text {
+    height: 100px;
+    width: 100%;
+    background-color: gray;
+    padding-top: 50px;
+}
+
+#combat {
+    height: 200px;
+    width: 100%;
+    background-color: red;
+    padding-top: 50px;
+}
