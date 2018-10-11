@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RPG Game</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,14 +16,48 @@
 </head>
 
 <body>
-    <div id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="secondbox">
+                    <div class="character" id="wizard">
+                        <img src="assets/images/hero_wizard.png">
+                        <h2>Wizard</h2>
+                        <div class="hp">100</div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-    <div id="text">
+            <div class="col-md-2">
+                <div id="thirdbox">
+                    <div class="character" id="bard">
+                        <img src="assets/images/hero_bard.png">
+                        <h2>Bard</h2>
+                        <div class="hp">100</div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-    <div id="combat">
+            <div class="col-md-2">
+                <div class="fourthbox">
+                    <div class="character" id="warrior">
+                        <img src="assets/images/hero_warrior.png">
+                        <h2>Warrior</h2>
+                        <div class="hp">100</div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-2">
+                <div class="fifthbox">
+                    <div class="character" id="paladin">
+                        <img src="assets/images/hero_paladin.png">
+                        <h2>Paladin</h2>
+                        <div class="hp">100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="/assets/javascript/game.js"></script>
 </body>

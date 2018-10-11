@@ -1,24 +1,23 @@
+.container {
+    width: 1000px;
+    margin-bottom: 20px;
+    }
+
 body {
-    background-color: white;
+    background-image: url(../images/Arena.jpg);
+    background-repeat: no-repeat;
+    background-size: 1200px;
+    position: relative;
+    text-align: center;
 }
 
-#gallery {
-    height: 200px;
-    width: 100%;
-    background-color: black;
-    padding-top: 50px;
+.col-md-2 {
+    margin: 15.5% auto 0;
+    position: relative;
+    padding: 0;
 }
 
-#text {
-    height: 100px;
-    width: 100%;
-    background-color: gray;
-    padding-top: 50px;
-}
-
-#combat {
-    height: 200px;
-    width: 100%;
-    background-color: red;
-    padding-top: 50px;
+img {
+    height: 150px;
+    display: block;
 }
