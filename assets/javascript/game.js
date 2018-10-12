@@ -10,7 +10,7 @@ var characters = {
         counterAttack: 30
     },
     "paladin": {
-        name: "<h2>Paladin</h2>",
+        name: "Paladin",
         playerImage: '<img src="assets/images/hero_paladin.png">',
         enemyImage: '<img src="assets/images/villain_paladin.png">',
         health: 200,
@@ -18,7 +18,7 @@ var characters = {
         counterAttack: 10
     },
     "bard": {
-        name: "<h2>Bard</h2>",
+        name: "Bard",
         playerImage: '<img src="assets/images/hero_bard.png">',
         enemyImage: '<img src="assets/images/villain_bard.png">',
         health: 150,
@@ -26,7 +26,7 @@ var characters = {
         counterAttack: 15
     },
     "warrior": {
-        name: "<h2>Warrior</h2>",
+        name: "Warrior",
         playerImage: '<img src="assets/images/hero_warrior.png">',
         enemyImage: '<img src="assets/images/villain_warrior.png">',
         health: 100,
@@ -40,12 +40,10 @@ var attack = 0;
 var enemySet = false;
 var playerSet = false;
 var gameStart = false;
+var turnCounter = 1;
 
 $(document).ready(function () {
 
-    //start game
-
-    //set up divs for game
     function setUp() {
         $(".playerarea").hide();
         $(".enemyarea").hide();
@@ -53,8 +51,17 @@ $(document).ready(function () {
         $(".character").show();
     }
 
+    var attack = function() {
+        enemyObj.health = enemyObj.health - (playerObj.attack * turnCounter);
+        playerObj.health = playerObj.health - (enemyObj.counterAttack);
+        $(".playerarea .hp").text("HP: " + playerObj.health);
+        $(".enemyarea .hp").text("HP: " + enemyObj.health);  
+        ++turnCounter;
+        $(".playerarea .attack").text("Attack: " + playerObj.attack * turnCounter);
+    }
+
     setUp();
-    //character select
+  
     $('.character').click(function () {
         if (playerSet === false && enemySet === false) {
             $(this).removeClass("character");
@@ -73,28 +80,10 @@ $(document).ready(function () {
     $('.attackbtn').click(function (){
         player = $(".playerarea").children("div").eq(0).attr('id');
         enemy = $(".enemyarea").children("div").eq(0).attr('id');
-        console.log(player +' VS '+enemy);
+        
         playerObj = characters[player];
         enemyObj = characters[enemy];
-        console.log(playerObj.name);
+        
+        attack();
     })
-    //enemy select
-
-    //move enemy to combat
-
-    //combat occurs
-
-    //enemy dies
-
-    //player dies
-
-    //player defeats all characters
-
-    //player character 1
-
-    //player character 2
-
-    //player character 3
-
-    //player character 4
 })
