@@ -35,7 +35,7 @@ h2{
 .hp, .attack {
     color: white;
     background-color: gray;
-    border: white solid 2px;
+    border: black solid 2px;
     display: inline-block;
     padding: 10px;
     font-size: 20px;
@@ -60,7 +60,6 @@ img {
     position: absolute;
     left: 100px;
     top: 350px;
-    border: white solid 2px;
     display: inline-block;
 }
 
@@ -70,7 +69,6 @@ img {
     position: absolute;
     right: 100px;
     top: 350px;
-    border: white solid 2px;
     display: inline-block;
 }
 
