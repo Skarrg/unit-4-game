@@ -1,5 +1,3 @@
-
-
 var characters = {
     "wizard": {
         name: "Wizard",
@@ -41,6 +39,8 @@ var enemySet = false;
 var playerSet = false;
 var gameStart = false;
 var turnCounter = 1;
+var wins = 0;
+var restart = false;
 
 $(document).ready(function () {
 
@@ -54,23 +54,57 @@ $(document).ready(function () {
     var attack = function() {
         enemyObj.health = enemyObj.health - (playerObj.attack * turnCounter);
         playerObj.health = playerObj.health - (enemyObj.counterAttack);
+        $('#textspan').html("You dealt " + enemyObj.name + " " + (playerObj.attack * turnCounter) + " Damage! They dealt " + enemyObj.counterAttack + " damage to you!");
         $(".playerarea .hp").text("HP: " + playerObj.health);
         $(".enemyarea .hp").text("HP: " + enemyObj.health);  
         ++turnCounter;
         $(".playerarea .attack").text("Attack: " + playerObj.attack * turnCounter);
     }
 
-    setUp();
+    var playerDefeated = function(){
+        if (playerObj.health < 1 && enemyObj.health > 0) {
+            $('#textspan').html("You were defeated by " + enemyObj.name);
+            restart();
+        } 
+        else if (playerObj.health< 1 && enemyObj.health < 1) {
+            $('#textspan').html("You Acheived Mutual Destruction with " + enemyObj.name);
+            restart();
+        }
+    }
+
+    var playerVictory = function(){
+        if (enemyObj.health < 1 && playerObj.health > 0) {
+            if (wins < 2) {
+                $('#textspan').html("You defeated " + enemyObj.name + "! Choose a new opponent.");
+                wins++;
+                enemySet = false;
+                $('.attackbtn').hide();
+                $('.innerenemy').empty();
+            }
+            else {
+                $('#textspan').html("YOU ARE THE CHAMPION OF THE ARENA");
+                restart();
+            }
+        }
+    }
+
+    var restart = function(){
+        restart = confirm("Restart?");
+        if (restart = true) {
+        location.reload();
+        }
+    }    
+    
   
     $('.character').click(function () {
         if (playerSet === false && enemySet === false) {
             $(this).removeClass("character");
-            $(".innerplayer").replaceWith($(this));
+            $(".innerplayer").append($(this));
             $(".playerarea").show();
             playerSet = true;
         }
         else if (playerSet === true && enemySet === false) {
-            $(".innerenemy").replaceWith($(this));
+            $(".innerenemy").append($(this));
             $(".attackbtn").show();
             $(".enemyarea").show();
             enemySet = true;
@@ -78,12 +112,16 @@ $(document).ready(function () {
     })
 
     $('.attackbtn').click(function (){
-        player = $(".playerarea").children("div").eq(0).attr('id');
-        enemy = $(".enemyarea").children("div").eq(0).attr('id');
+        player = $(".innerplayer").children("div").eq(0).attr('id');
+        enemy = $(".innerenemy").children("div").eq(0).attr('id');
         
         playerObj = characters[player];
         enemyObj = characters[enemy];
         
         attack();
+        playerDefeated();
+        playerVictory();
     })
+
+    setUp();
 })
