@@ -1,10 +1,10 @@
 
 
 var characters = {
-    "wizard": { name: "Wizard", image: '<img src="assets/images/hero_wizard.png">', health: 80, attack: 30, counterAttack: 10 },
-    "paladin": { name: "Paladin", image: '<img src="assets/images/hero_paladin.png">', health: 200, attack: 10, counterAttack: 10 },
-    "bard": { name: "Bard", image: '<img src="assets/images/hero_bard.png">', health: 150, attack: 15, counterAttack: 10 },
-    "warrior": { name: "Warrior", image: '<img src="assets/images/hero_warrior.png">', health: 100, attack: 25, counterAttack: 10 }
+    "wizard": { name: "<h2>Wizard</h2>", playerImage: '<img src="assets/images/hero_wizard.png">', enemyImage: '<img src="assets/images/villain_wizard.png">', health: 80, attack: 30, counterAttack: 30 },
+    "paladin": { name: "<h2>Paladin</h2>", playerImage: '<img src="assets/images/hero_paladin.png">', enemyImage: '<img src="assets/images/villain_paladin.png">', health: 200, attack: 10, counterAttack: 10 },
+    "bard": { name: "<h2>Bard</h2>", playerImage: '<img src="assets/images/hero_bard.png">', enemyImage: '<img src="assets/images/villain_bard.png">', health: 150, attack: 15, counterAttack: 15 },
+    "warrior": { name: "<h2>Warrior</h2>", playerImage: '<img src="assets/images/hero_warrior.png">', enemyImage: '<img src="assets/images/villain_warrior.png">', health: 100, attack: 25, counterAttack: 25 }
 }
 
 //global variables for refernerenenerece
@@ -15,23 +15,41 @@ var gameStart = false;
 
 
 $(document).ready(function () {
+
     //start game
 
     //set up divs for game
+    function setUp() {
+        $(".playerarea").hide();
+        $(".enemyarea").hide();
+        $(".attackbtn").hide();
+        $(".character").show();
+    }
 
+    setUp();
     //character select
-$('.character').click(function() {
-    console.log($(this).attr('id') );
-debugger;
-    //if (playerSet == false) {
-    //    for (var i =0; i < characters.length; i++) {
-    //        if (characters[i] == this) {
-    //            $('.playerarea').append(characters[i]);
-    //            playerSet = true;
-    //        }
-    //    }
-    //}
-})
+    $('.character').click(function () {
+       if (playerSet == false){
+        $(".playerarea").show();
+        $(".playerarea").append($(this).attr('id'));
+        $(this).hide();
+        playerSet = true;
+       } else if (playerSet == true && enemySet == false) {
+        $(".enemyarea").show();
+        $(".attackbtn").show();
+        $(".enemyarea").append($(this).attr('id'));
+        $(this).hide();
+        enemySet = true;
+       }
+        //if (playerSet == false) {
+        //    for (var i = 0; i < characters.length; i++) {
+        //        if (characters[i] == $(this).attr.id) {
+        //            $('.playerarea').innerhtml(characters[i]);
+        //            
+        //        }
+        //    }
+        //}
+    })
     //enemy select
 
     //move enemy to combat
