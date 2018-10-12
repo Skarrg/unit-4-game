@@ -2,9 +2,10 @@
     margin-bottom: 20px;
     height: 600px;
     }
-.row {
-height: 100%
-    }
+
+    .row {
+        height: 100%
+            }
 
 body {
     background-image: url(../images/Arena.jpg);
@@ -22,12 +23,16 @@ body {
     position: relative;
     padding: 0;
 }
-
+.col-md-12{
+    font-size: 50px;
+    padding: 25px;
+    color:white;
+}
 h2{
     color: white;
 }
 
-.hp {
+.hp, .attack {
     color: white;
     background-color: gray;
     border: white solid 2px;
@@ -39,4 +44,30 @@ h2{
 img {
     height: 150px;
     display: block;
+}
+
+.attackbtn{
+    position: absolute;
+    bottom: 100px;
+    left: 550px;
+}
+
+.playerarea {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 100px;
+    top: 350px;
+    border: white solid 2px;
+    display: inline-block;
+}
+
+.enemyarea {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    right: 100px;
+    top: 350px;
+    border: white solid 2px;
+    display: inline-block;
 }
