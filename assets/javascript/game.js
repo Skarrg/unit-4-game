@@ -105,12 +105,14 @@ $(document).ready(function () {
             $(".innerplayer").append($(this));
             $(".playerarea").show();
             playerSet = true;
+            $('#textspan').html("Choose your Opponent!");
         }
         else if (playerSet === true && enemySet === false) {
             $(".innerenemy").append($(this));
             $(".attackbtn").show();
             $(".enemyarea").show();
             enemySet = true;
+            $('#textspan').html("Welcome to the Arena! Press Attack to FIGHT");
         }
     })
 
