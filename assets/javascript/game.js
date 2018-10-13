@@ -3,7 +3,7 @@ var characters = {
         name: "Wizard",
         playerImage: '<img src="assets/images/hero_wizard.png">',
         enemyImage: '<img src="assets/images/villain_wizard.png">',
-        health: 80,
+        health: 85,
         attack: 30,
         counterAttack: 30
     },
@@ -11,7 +11,7 @@ var characters = {
         name: "Paladin",
         playerImage: '<img src="assets/images/hero_paladin.png">',
         enemyImage: '<img src="assets/images/villain_paladin.png">',
-        health: 200,
+        health: 180,
         attack: 10,
         counterAttack: 10
     },
@@ -27,7 +27,7 @@ var characters = {
         name: "Warrior",
         playerImage: '<img src="assets/images/hero_warrior.png">',
         enemyImage: '<img src="assets/images/villain_warrior.png">',
-        health: 100,
+        health: 105,
         attack: 25,
         counterAttack: 25
     }
@@ -64,10 +64,12 @@ $(document).ready(function () {
     var playerDefeated = function(){
         if (playerObj.health < 1 && enemyObj.health > 0) {
             $('#textspan').html("You were defeated by " + enemyObj.name);
+            alert('You Lost!');
             restart();
         } 
         else if (playerObj.health< 1 && enemyObj.health < 1) {
             $('#textspan').html("You Acheived Mutual Destruction with " + enemyObj.name);
+            alert('You Lost!');
             restart();
         }
     }
@@ -83,6 +85,7 @@ $(document).ready(function () {
             }
             else {
                 $('#textspan').html("YOU ARE THE CHAMPION OF THE ARENA");
+                alert('You Won!');
                 restart();
             }
         }
